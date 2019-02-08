@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login Screen</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input formControlName="username" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="loginForm.controls.username.hasError('required') && loginForm.controls.username.touched" class="error-msg">
+      Sorry, field username is required!
+    </ion-item>
+    <ion-item *ngIf="loginForm.controls.username.hasError('pattern') && loginForm.controls.username.touched" class="error-msg">
+      Sorry, only small and capital letters are allowed!
+    </ion-item>
+    <ion-item *ngIf="loginForm.controls.username.hasError('minlength') && loginForm.controls.username.touched" class="error-msg">
+      Sorry, minimum username length is 8!
+    </ion-item>
+    <ion-item *ngIf="loginForm.controls.username.hasError('maxlength') && loginForm.controls.username.touched" class="error-msg">
+      Sorry, maximum username length is 30!
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input formControlName="password" [type]="passwordType"></ion-input>
+      <ion-icon *ngIf="loginForm.controls.password && loginForm.controls.password.value !='' " [name]="passwordIcon"
+        item-right (click)="hideShowPassword()"></ion-icon>
+
+    </ion-item>
+    <ion-item *ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched" class="error-msg">
+      Sorry, field password is required!
+    </ion-item>
+    <ion-item *ngIf="loginForm.controls.password.hasError('minlength') && loginForm.controls.password.touched" class="error-msg">
+      Sorry, minimum password length is 8!
+    </ion-item>
+
+    <button ion-button full color="primary" [disabled]="!loginForm.valid" style="margin-top: 20px;" type="submit">LOGIN</button>
+
+    <!-- <div (click)="resetPassword()">Reset Password</div> -->
+  </form>
+</ion-content>
