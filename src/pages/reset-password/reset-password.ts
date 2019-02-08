@@ -49,7 +49,7 @@ export class ResetPasswordPage {
         }
         else {
           this.utility.showAlert({
-            message: 'Wrong Password!', buttons: [
+            message: 'Current Password entered is incorrect!', buttons: [
               {
                 text: 'Ok',
                 handler: () => {
@@ -61,7 +61,7 @@ export class ResetPasswordPage {
       }
       else{
         console.log("The New Password and Confirm New Password didn't matched.")
-         this.utility.showToast({message: 'The New Password and Confirm New Password didn\'t matched.'});
+         this.utility.showToast({message: this.error.INVALID_CONFIRM_PASSWORD});
       }
     }
   }
