@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>clientSearch</ion-title>
+    <ion-title>Search Client Name</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -14,8 +14,11 @@
 
   <ion-list>
       <ion-item *ngFor="let item of items">
-          {{item.title}}
+          {{item.name}}
       </ion-item>
+      <ion-item *ngIf="noRecordsFound">No Records Found</ion-item>
   </ion-list>
+
+  <button ion-button color="primary" style="margin-top: 20px;" type="submit" *ngIf="!noRecordsFound" (click)="searchResults(items)">SEARCH RESULTS</button>
 
 </ion-content>

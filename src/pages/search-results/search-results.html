@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Search Results</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let data of data">
+    {{data.name}}
+    <div class="name">
+      <span class="duration-after-comment">
+        Username: {{data.username}}
+      </span>
+    </div>
+    <div class="comment-body">
+      Email: {{data.email}}<br>
+      Website: {{data.website}}
+    </div>
+  </ion-item>
+</ion-content>

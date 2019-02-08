@@ -15,6 +15,7 @@ export class ClientSearchPage {
   searchControl: FormControl;
   items: any;
   searching: any = false;
+  noRecordsFound: boolean = false;
 
   constructor(public navCtrl: NavController, public dataService: DataProvider) {
     this.searchControl = new FormControl();
@@ -41,6 +42,17 @@ export class ClientSearchPage {
   setFilteredItems() {
 
     this.items = this.dataService.filterItems(this.searchTerm);
+    if (this.items.length == 0) {
+      this.noRecordsFound = true;
+    }
+    else{
+      this.noRecordsFound = false;
+    }
 
+  }
+
+  searchResults(items){
+    console.log(items);
+    this.navCtrl.push('SearchResultsPage',{items});
   }
 }
