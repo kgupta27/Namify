@@ -15,7 +15,8 @@ export class HomeScreenPage {
     this.username = window.localStorage.getItem('username');
   }
 
-  logout(): void {
+  // logout function will remove the local storage and the session will expire for a particular user
+  logout(){
     window.localStorage.removeItem('username');
     window.localStorage.removeItem('password');
 
@@ -23,11 +24,13 @@ export class HomeScreenPage {
     this.nav.popToRoot();
   }
 
+  // function to navigate to reset password page
   resetPassword(){
     console.log("Reset Password")
     this.nav.push('ResetPasswordPage');
   }
 
+  // function to navigate to searching page
   clientSearch(){
     this.nav.push('ClientSearchPage');
   }

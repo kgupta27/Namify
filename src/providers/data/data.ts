@@ -92,6 +92,7 @@ export class DataProvider {
   constructor(public http: HttpClient) {
   }
 
+  // filter the search results
   filterItems(searchTerm) {
 
     return this.clientData.filter((item) => {

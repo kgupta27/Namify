@@ -7,7 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = 'HomeScreenPage';
+  rootPage: any = 'HomeScreenPage';
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -19,8 +19,9 @@ export class MyApp {
   }
 
   checkPreviousAuthorization(): void {
-    if((window.localStorage.getItem('username') === "undefined" || window.localStorage.getItem('username') === null) && 
-       (window.localStorage.getItem('password') === "undefined" || window.localStorage.getItem('password') === null)) {
+    // we will check if the user has already login or not
+    if ((window.localStorage.getItem('username') === "undefined" || window.localStorage.getItem('username') === null) &&
+      (window.localStorage.getItem('password') === "undefined" || window.localStorage.getItem('password') === null)) {
       this.rootPage = 'LoginScreenPage';
     } else {
       this.rootPage = 'HomeScreenPage';

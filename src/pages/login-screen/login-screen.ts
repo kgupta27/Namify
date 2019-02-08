@@ -38,6 +38,7 @@ export class LoginScreenPage {
     this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
 
+  // Function to save the user details in local storage on successfull login
   onSubmit(value: any): void {
     if (this.loginForm.valid) {
       window.localStorage.setItem('username', value.username);

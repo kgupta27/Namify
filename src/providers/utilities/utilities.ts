@@ -12,22 +12,15 @@ export class UtilitiesProvider {
     // subTitle: 'Alert is Here',
   }
 
-  loader_count: number = 0;
-  loader: any;
-  loading = {
-    content: 'Please wait...'
-  }
-
   toast: any;
   toastOptions = {
-    message: 'User was added successfully',
+    message: 'User added successfully',
     duration: 3000,
     position: 'top'
   }
 
   constructor(
     private alertCtrl: AlertController,
-    public loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
   ) {
     console.log('Hello UtilitiesProvider Provider');
@@ -41,20 +34,6 @@ export class UtilitiesProvider {
 
   hideAlert() {
     this.alert.Dismiss();
-  }
-
-  showLoader(loading = {}, onDismiss = () => { }) {
-    this.loader_count++;
-    if (this.loader_count == 1) {
-      this.loader = this.loadingCtrl.create(Object.assign({}, this.loading, loading));
-      this.loader.present();
-    }
-  }
-
-  hideLoader() {
-    if (this.loader_count == 1)
-      this.loader.dismiss()
-    this.loader_count--;
   }
 
   showToast(toastOptions = {}, onDismiss = () => { }) {

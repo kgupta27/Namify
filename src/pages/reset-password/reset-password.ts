@@ -35,6 +35,7 @@ export class ResetPasswordPage {
     console.log('ionViewDidLoad ResetPasswordPage');
   }
 
+  // function which will validate the form and then reset the password in storage
   onSubmit(value: any): void {
     if (this.resetForm.valid) {
       if (value.new_password == value.cnfm_password) {

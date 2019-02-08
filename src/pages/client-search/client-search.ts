@@ -35,10 +35,12 @@ export class ClientSearchPage {
 
   }
 
+  // function will help in improving UX by showing a loading spiner while searching
   onSearchInput() {
     this.searching = true;
   }
 
+  // function to filter the data items as per user input
   setFilteredItems() {
 
     this.items = this.dataService.filterItems(this.searchTerm);
@@ -51,6 +53,7 @@ export class ClientSearchPage {
 
   }
 
+  // function to navigate on search result page
   searchResults(items){
     console.log(items);
     this.navCtrl.push('SearchResultsPage',{items});
