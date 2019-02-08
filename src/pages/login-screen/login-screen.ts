@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilitiesProvider } from './../../providers/utilities/utilities';
+import { ERROR_MESSAGES } from './../../app/error';
 
 @IonicPage()
 @Component({
@@ -13,6 +14,7 @@ export class LoginScreenPage {
   loginForm: FormGroup;
   passwordType: string = 'password';
   passwordIcon: string = 'eye';
+  error:any;
 
   constructor(
     public nav: NavController,
@@ -20,6 +22,7 @@ export class LoginScreenPage {
     public formBuilder: FormBuilder,
     private utility: UtilitiesProvider) {
 
+    this.error = ERROR_MESSAGES;
     this.loginForm = formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*'), Validators.minLength(8), Validators.maxLength(30)])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(8)])]

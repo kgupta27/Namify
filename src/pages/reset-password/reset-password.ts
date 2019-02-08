@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilitiesProvider } from './../../providers/utilities/utilities';
+import { ERROR_MESSAGES } from './../../app/error';
 
 @IonicPage()
 @Component({
@@ -15,6 +16,7 @@ export class ResetPasswordPage {
   showCurrPswd: boolean = false;
   showNewPswd: boolean = false;
   showCnfmPswd: boolean = false;
+  error:any;
 
   constructor(
     public nav: NavController,
@@ -22,6 +24,7 @@ export class ResetPasswordPage {
     public formBuilder: FormBuilder,
     private utility: UtilitiesProvider) {
 
+    this.error = ERROR_MESSAGES;
     this.resetForm = formBuilder.group({
       curr_password: ['', Validators.compose([Validators.required, Validators.minLength(8)])],
       new_password: ['', Validators.compose([Validators.required, Validators.minLength(8)])],

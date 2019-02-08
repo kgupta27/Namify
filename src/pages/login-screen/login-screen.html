@@ -13,16 +13,16 @@
     </ion-item>
 
     <ion-item *ngIf="loginForm.controls.username.hasError('required') && loginForm.controls.username.touched" class="error-msg">
-      Sorry, field username is required!
+      {{error.INVALID_USERNAME}}
     </ion-item>
     <ion-item *ngIf="loginForm.controls.username.hasError('pattern') && loginForm.controls.username.touched" class="error-msg">
-      Sorry, only small and capital letters are allowed!
+      {{error.INVALID_USERNAME_REGEX}}
     </ion-item>
     <ion-item *ngIf="loginForm.controls.username.hasError('minlength') && loginForm.controls.username.touched" class="error-msg">
-      Sorry, minimum username length is 8!
+      {{error.INVALID_USERNAME_MINLENGTH}}
     </ion-item>
     <ion-item *ngIf="loginForm.controls.username.hasError('maxlength') && loginForm.controls.username.touched" class="error-msg">
-      Sorry, maximum username length is 30!
+      {{error.INVALID_USERNAME_MAXLENGTH}}
     </ion-item>
 
     <ion-item>
@@ -33,14 +33,13 @@
 
     </ion-item>
     <ion-item *ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched" class="error-msg">
-      Sorry, field password is required!
+      {{error.INVALID_PASSWORD_REQD}}
     </ion-item>
     <ion-item *ngIf="loginForm.controls.password.hasError('minlength') && loginForm.controls.password.touched" class="error-msg">
-      Sorry, minimum password length is 8!
+      {{error.INVALID_PASSWORD}}
     </ion-item>
 
     <button ion-button full color="primary" [disabled]="!loginForm.valid" style="margin-top: 20px;" type="submit">LOGIN</button>
 
-    <!-- <div (click)="resetPassword()">Reset Password</div> -->
   </form>
 </ion-content>

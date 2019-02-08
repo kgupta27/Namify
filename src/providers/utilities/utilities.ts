@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
-import { LoadingController } from 'ionic-angular';
 
 @Injectable()
 export class UtilitiesProvider {
@@ -9,7 +8,6 @@ export class UtilitiesProvider {
   alert: any;
   alertOptions = {
     title: 'Alert',
-    // subTitle: 'Alert is Here',
   }
 
   toast: any;
