@@ -19,6 +19,6 @@
       <ion-item *ngIf="noRecordsFound">No Records Found</ion-item>
   </ion-list>
 
-  <button ion-button color="primary" style="margin-top: 20px;" type="submit" *ngIf="!noRecordsFound" (click)="searchResults(items)">SEARCH RESULTS</button>
+  <button ion-button color="primary" class="search-btn" type="submit" *ngIf="!noRecordsFound" (click)="searchResults(items)">SEARCH RESULTS</button>
 
 </ion-content>
